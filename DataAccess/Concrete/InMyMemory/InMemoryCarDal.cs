@@ -15,10 +15,10 @@ namespace DataAccess.Concrete.InMyMemory
         public InMemoryCarDal()
         {
             _cars = new List<Car> { 
-                new Car{BrandId = 5 , ColorId = 2 , DailyPrice = 1000, Id = 1 ,ModelYear = "2004" , Description ="Audio"},
-                new Car{BrandId = 6 , ColorId = 5 , DailyPrice = 2000, Id = 2 ,ModelYear = "2008" , Description ="Focus"},
-                new Car{BrandId = 7 , ColorId = 3 , DailyPrice = 3000, Id = 3 ,ModelYear = "2010" , Description ="Kia"},
-                new Car{BrandId = 8 , ColorId = 2 , DailyPrice = 4000, Id = 4 ,ModelYear = "2015" , Description ="BMW"}
+                new Car{BrandId = 5 , ColorId = 2 , DailyPrice = 1000, CarId = 1 ,ModelYear = "2004" , Description ="Audio"},
+                new Car{BrandId = 6 , ColorId = 5 , DailyPrice = 2000, CarId = 2 ,ModelYear = "2008" , Description ="Focus"},
+                new Car{BrandId = 7 , ColorId = 3 , DailyPrice = 3000, CarId = 3 ,ModelYear = "2010" , Description ="Kia"},
+                new Car{BrandId = 8 , ColorId = 2 , DailyPrice = 4000, CarId = 4 ,ModelYear = "2015" , Description ="BMW"}
             };
         }
         public void Add(Car car)
@@ -28,7 +28,7 @@ namespace DataAccess.Concrete.InMyMemory
 
         public void Delete(Car car)
         {
-            Car carToDelete = _cars.SingleOrDefault(c=>c.Id == car.Id);
+            Car carToDelete = _cars.SingleOrDefault(c=>c.CarId == car.CarId);
             _cars.Remove(car);
         }
 
@@ -49,7 +49,7 @@ namespace DataAccess.Concrete.InMyMemory
 
         public List<Car> GetById(int Id)
         {
-            return _cars.Where(c => c.Id == c.Id).ToList();
+            return _cars.Where(c => c.CarId == c.CarId).ToList();
         }
 
         public List<CarDetailDto> GetCarDetailDtos()
@@ -64,12 +64,12 @@ namespace DataAccess.Concrete.InMyMemory
 
         public void Update(Car car)
         {
-            Car carToUpdate = _cars.SingleOrDefault(c => c.Id == car.Id);
+            Car carToUpdate = _cars.SingleOrDefault(c => c.CarId == car.CarId);
             carToUpdate.BrandId = car.BrandId;
             carToUpdate.ColorId = car.ColorId;
             carToUpdate.DailyPrice = car.DailyPrice;
             carToUpdate.Description = car.Description;
-            carToUpdate.Id = car.Id;
+            carToUpdate.CarId = car.CarId;
             carToUpdate.ModelYear = car.ModelYear;
         }
        

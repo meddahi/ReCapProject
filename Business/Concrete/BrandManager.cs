@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -14,45 +16,41 @@ namespace Business.Concrete
         {
             _brandDal = brandDal;
         }
-        public void Add(Brand brand)
+        public IResult Add(Brand brand)
         {
             if (brand.BrandName.Length>2)
             {
-                _brandDal.Add(brand);
-                Console.WriteLine($"Marka isim uzunluğu 2 karakterden fazla olmalıdır.Girdiğiniz marka : {brand.BrandName}");
-                
+                return new ErrorResult(Messages.CantAdded);                
             }
+            _brandDal.Add(brand);
+            return new SuccessResult(Messages.Added);
+        }
+        
+        public IResult Delete(Brand brand)
+        {
+            return new SuccessResult(Messages.Deleted);
         }
 
         
-        public void Delete(Brand brand)
+        public IDataResult<List<Brand>> GetAll()
         {
-            _brandDal.Delete(brand);
-            Console.WriteLine($"Marka başarıyla silindi.");
+            return new SuccessDataResult<List<Brand>>(_brandDal.GetAll());
         }
 
         
-        public List<Brand> GetAll()
+        public IDataResult<Brand> GetById(int id)
         {
-            return _brandDal.GetAll();
+            return new SuccessDataResult<Brand>(_brandDal.Get(b => b.BrandId == id));
         }
 
-        public Brand GetById(int id)
-        {
-            return _brandDal.Get(b => b.BrandId == id);
-        }
-
-        public void Update(Brand brand)
+        public IResult Update(Brand brand)
         {
             if (brand.BrandName.Length>=2)
             {
-                _brandDal.Update(brand);
-                Console.WriteLine("Marka başarıyla GÜNCELLENDİ.");
+                return new ErrorResult(Messages.UpdatedFailed);
             }
-            else
-            {
-                Console.WriteLine($"Marka uzunluğu 1 karakterden fazla olmalıdır.Girdiğiniz değer : {brand.BrandName}");
-            }
+            _brandDal.Update(brand);
+            return new SuccessResult(Messages.Updated);
         }
                    
 

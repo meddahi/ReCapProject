@@ -11,19 +11,21 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
         
-                CarDetailDtoTest();
+                //CarDetailDtoTest();
 
         }
 
-        private static void CarDetailDtoTest()
-        {
+        //private static void CarDetailDtoTest()
+        //{
 
-            CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetCarDetailDtos())
-            {
-                Console.WriteLine("Marka: " + car.BrandName + " Model: " + car.Description + " Renk: " + car.ColorName + " Günlük Fiyat: " + car.DailyPrice);
-            }               
-        }
+        //    //CarManager carManager = new CarManager(new EfCarDal());
+        //    //foreach (var car in carManager.GetCarDetailDtos())
+        //    //{
+        //    //    Console.WriteLine("Marka: " + car.BrandName + " Model: " + car.Description + " Renk: " + car.ColorName + " Günlük Fiyat: " + car.DailyPrice);
+        //    //}               
+        //}
+
+
 
     }
 }
