@@ -9,15 +9,16 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class RentalController : ControllerBase
+    [Route("api/[controller]")]
+   
+    public class RentalsController : ControllerBase // rental yazıyordu class ismini rentals yaptık :D ardından
     {
         //Loosely coupled
         //IoC Container---Inversion of Control
         IRentalService _rentalService;
 
-        public RentalController(IRentalService rentalService)
+        public RentalsController(IRentalService rentalService)
         {
             _rentalService = rentalService;
         }

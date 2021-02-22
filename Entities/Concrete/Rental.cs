@@ -11,6 +11,6 @@ namespace Entities.Concrete
         public int CarId { get; set; }
         public int CustomerId { get; set; }
         public DateTime RentDate { get; set; }
-        public DateTime ReturnDate { get; set; }
+        public DateTime?  ReturnDate { get; set; } //? koymamız bu prop un nullable özelliğini aktif eder kısaca bu prop tabloda null değer alabilir:)
     }
 }
