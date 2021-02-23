@@ -11,12 +11,12 @@ namespace Business.ValidationRules.FluentValidation
         //kurallar ctor içerisine yazılır
         public CarValidator()
         {
-            RuleFor(p => p.CarName).NotEmpty();
-            RuleFor(p => p.CarName).MinimumLength(2);
-            RuleFor(p => p.DailyPrice).NotEmpty();
-            RuleFor(p => p.DailyPrice).GreaterThan(0);
-            RuleFor(p => p.DailyPrice).GreaterThanOrEqualTo(1000).When(p => p.BrandId == 1);
-            RuleFor(p => p.ModelYear).NotEmpty();
+            RuleFor(c => c.CarName).NotEmpty();
+            RuleFor(c => c.CarName).MinimumLength(2);
+            RuleFor(c => c.DailyPrice).NotEmpty();
+            RuleFor(c => c.DailyPrice).GreaterThan(0);
+            RuleFor(c => c.DailyPrice).GreaterThanOrEqualTo(1000).When(c => c.BrandId == 1);
+            RuleFor(c => c.ModelYear).NotEmpty();
         }
     }
 }
