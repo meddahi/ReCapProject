@@ -19,7 +19,7 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        [ValidationAspect(typeof(ColorValidator))]
+        [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(Color color)
         {
             return new SuccessResult(Messages.CantAdded);

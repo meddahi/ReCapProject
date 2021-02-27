@@ -26,6 +26,6 @@ namespace Business.Constants
         public static string ColorAddInvalid = "Var olan Renk eklenemez";
         public static string BrandAddInvalid = "Var olan Marka eklenemez";
         public static string MaintenanceTime = "Bakım Zamanı!\nSize daha iyi bir hizmet verebilmek için çalışmalarımız devam ediyor...";
-
+        public static string CarImageLimitExceeded = "Bir arabanın en fazla 5 resmi olabilir.";
     }
 }
