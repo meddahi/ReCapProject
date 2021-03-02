@@ -27,5 +27,12 @@ namespace Business.Constants
         public static string BrandAddInvalid = "Var olan Marka eklenemez";
         public static string MaintenanceTime = "Bakım Zamanı!\nSize daha iyi bir hizmet verebilmek için çalışmalarımız devam ediyor...";
         public static string CarImageLimitExceeded = "Bir arabanın en fazla 5 resmi olabilir.";
+        public static string AuthorizationDenied = "Yetkiniz yoktur";
+        public static string UserRegistered = "Kayıtlı başarılı";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Hatalı şifre";
+        public static string SuccessfulLogin = "Başarılı Giriş";
+        public static string UserAlreadyExists = "Kullanıcı mevcut";
+        public static string AccessTokenCreated = "Giriş Token oluşturuldu";
     }
 }
