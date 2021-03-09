@@ -29,8 +29,8 @@ namespace Business.Concrete
             var user = new User
             {
                 Email = userForRegisterDto.Email,
-                FirstName = userForRegisterDto.UserFirstName,
-                LastName = userForRegisterDto.UserLastName,
+                FirstName = userForRegisterDto.FirstName,
+                LastName = userForRegisterDto.LastName,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
                 Status = true
