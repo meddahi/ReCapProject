@@ -17,9 +17,9 @@ namespace Core.Utilities.Helpers
                     file.CopyTo(stream);
                 }
             }
-            var result = newPath(file);
+            var result =@"wwwroot"+ newPath(file);
             File.Move(sourcepath, result);
-            return result;
+            return newPath(file);
         }
         public static IResult Delete(string path)
         {
@@ -50,12 +50,10 @@ namespace Core.Utilities.Helpers
         public static string newPath(IFormFile file)
         {
             FileInfo ff = new FileInfo(file.FileName);
-            string fileExtension = ff.Extension;
-
-            string path = Environment.CurrentDirectory + @"\Images\carImages";
+            string fileExtension = ff.Extension;            
             var newPath = Guid.NewGuid().ToString() + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + fileExtension;
 
-            string result = $@"{path}\{newPath}";
+            string result = $@"\Images\{newPath}";
             return result;
         }
     }

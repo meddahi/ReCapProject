@@ -25,9 +25,9 @@ namespace WebAPI.Controllers
             var result = _customerService.GetAll();
             if (result.Success)
             {
-                return Ok();
+                return Ok(result);
             }
-            return BadRequest();
+            return BadRequest(result);
         }
         [HttpGet("getbyid")]
         public IActionResult GetById(int id)

@@ -52,6 +52,8 @@ namespace WebAPI
             //services.AddSingleton<ICustomerService, CustomerManager>();
             //services.AddSingleton<ICustomerDal, EfCustomerDal>();
 
+            services.AddCors();
+
             
 
 
@@ -89,9 +91,15 @@ namespace WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            app.ConfigureCustomExceptionMiddleware();
+
+            app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+
+            app.UseHttpsRedirection();            
 
             app.UseRouting();
+
+            app.UseStaticFiles();
 
             app.UseAuthentication();
 

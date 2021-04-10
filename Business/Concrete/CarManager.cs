@@ -93,5 +93,15 @@ namespace Business.Concrete
             Add(car);
             return null;
         }
+
+        public IDataResult<List<Car>> GetByBrandId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.BrandId == id));
+        }
+
+        public IDataResult<List<Car>> GetByColordId(int id)
+        {
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(c => c.ColorId == id));
+        }
     }
 }
